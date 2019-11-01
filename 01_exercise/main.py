@@ -8,9 +8,13 @@ def mensaje_fin():
     print(mensaje)
         
 def ingrese_numero():
-    numero =    int(
-                    input("Ingrese un numero: \t")
-                )
+    try:
+        numero =    int(
+                        input("Ingrese un numero: \t")
+                    )
+    except: 
+        numero = ingrese_numero()
+        
     return numero
 
 def mayor(primero,segundo):
@@ -40,7 +44,6 @@ print(mensaje_numero_ingresado_dos)
 if(mayor_primero == True):
     print(mensaje_positivo)
 else:
-    print(mensaje_negativo)
-    
-    
+    print(mensaje_negativo) 
+
 mensaje_fin()    
