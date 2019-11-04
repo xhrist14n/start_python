@@ -19,17 +19,39 @@ def ingrese_texto(mensaje = None):
         
     return texto
 
-def es_usuario( usuario ):
-    usuario_valido = 'pepe'
+def ingrese_numero(mensaje = None):
+    numero = 0
+    if(mensaje is None):
+        mensaje = "Ingrese un numero: "
+        
+    try:
+        numero = float(input(mensaje + "\t"))
+    except: 
+        numero = ingrese_numero(mensaje)
+        
+    return numero
+
+def es_nota_valida( nota ):
     respuesta = False
-    if(usuario == usuario_valido):
+    if(nota >= 5):
         respuesta = True
     return respuesta
 
-def es_clave( clave ):
-    clave_valida = 'asdasd'
+def es_edad_valida( edad ):
     respuesta = False
-    if(clave == clave_valida):
+    if(edad >= 18):
+        respuesta = True
+    return respuesta
+
+def es_femenino( sexo ):
+    respuesta = False
+    if(sexo == 'F'):
+        respuesta = True
+    return respuesta
+
+def es_masculino( sexo ):
+    respuesta = False
+    if(sexo == 'M'):
         respuesta = True
     return respuesta
 
@@ -37,28 +59,32 @@ def es_clave( clave ):
 
 mensaje_inicio()
 
-usuario     =   ingrese_texto("Ingrese el usuario: ")
-clave       =   ingrese_texto("Ingrese la clave: ")
+nota     =   ingrese_numero("Ingrese la nota: ")
+edad       =   ingrese_numero("Ingrese la edad: ")
+sexo       =   ingrese_texto("Ingrese su sexo(M/F): ")
 
-usuario_validado    = es_usuario(usuario)
-clave_validada      = es_clave(clave)
 
-mensaje_validado                 = '\nSi es un usuario valido\n'
-mensaje_no_validado              = '\nNo es un usuario valido\n'
+nota_valida = es_nota_valida(nota)
+edad_valida = es_edad_valida(edad)
+femenino = es_femenino(sexo)
+masculino = es_masculino(sexo)
+
+mensaje_validado                 = '\nACEPTADA\n'
+mensaje_no_validado              = '\nNO ACEPTADA\n'
+mensaje_posible                  = '\nPOSIBLE\n'
 mensaje_no_determinado           = '\nNo se puede determinar\n'
 
-mensaje_usuario = '\nEl usuario ingresado es %s \n'%(usuario)
-mensaje_clave = '\nLa clave ingresada es %s \n'%(clave)
-
-print(mensaje_usuario)
-print(mensaje_clave)
-
-mensaje_resultado = 'El resultado de la validacion es : \t '
+mensaje_resultado = '\nEl resultado es : \t '
 
 print(mensaje_resultado)
 
-if      (usuario_validado == True and clave_validada==True):
-    print(mensaje_validado)
+if      nota_valida == True and edad_valida==True:
+    if femenino == True:
+        print(mensaje_validado)
+    elif masculino == True:
+        print(mensaje_posible)
+    else:
+        print(mensaje_no_determinado)            
 else:
     print(mensaje_no_validado)
 
