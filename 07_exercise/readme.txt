@@ -1,4 +1,5 @@
-Realiza un algoritmo que calcule la potencia, para ello pide por teclado la base y el exponente. Pueden ocurrir tres cosas:
+Realiza un algoritmo que calcule la potencia, para ello pide por teclado la base y el exponente. 
+Pueden ocurrir tres cosas:
 
     El exponente sea positivo, sólo tienes que imprimir la potencia.
 

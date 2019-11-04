@@ -19,17 +19,33 @@ def ingrese_texto(mensaje = None):
         
     return texto
 
-def es_usuario( usuario ):
-    usuario_valido = 'pepe'
+def ingrese_numero(mensaje = None):
+    numero = 0
+    if(mensaje is None):
+        mensaje = "Ingrese un numero: "
+        
+    try:
+        numero = float(input(mensaje + "\t"))
+    except: 
+        numero = ingrese_numero(mensaje)
+        
+    return numero
+
+def es_positivo( numero ):
     respuesta = False
-    if(usuario == usuario_valido):
+    if(numero>0):
         respuesta = True
     return respuesta
 
-def es_clave( clave ):
-    clave_valida = 'asdasd'
+def es_negativo( numero ):
     respuesta = False
-    if(clave == clave_valida):
+    if(numero<0):
+        respuesta = True
+    return respuesta
+
+def es_cero( numero ):
+    respuesta = False
+    if(numero == 0):
         respuesta = True
     return respuesta
 
@@ -37,29 +53,30 @@ def es_clave( clave ):
 
 mensaje_inicio()
 
-usuario     =   ingrese_texto("Ingrese el usuario: ")
-clave       =   ingrese_texto("Ingrese la clave: ")
+base            =   ingrese_numero("Ingrese la base: ")
+exponente       =   ingrese_numero("Ingrese el exponente: ")
 
-usuario_validado    = es_usuario(usuario)
-clave_validada      = es_clave(clave)
+positivo = es_positivo(exponente)
+negativo = es_negativo(exponente)
+cero = es_cero(exponente)
 
-mensaje_validado                 = '\nSi es un usuario valido\n'
-mensaje_no_validado              = '\nNo es un usuario valido\n'
-mensaje_no_determinado           = '\nNo se puede determinar\n'
 
-mensaje_usuario = '\nEl usuario ingresado es %s \n'%(usuario)
-mensaje_clave = '\nLa clave ingresada es %s \n'%(clave)
-
-print(mensaje_usuario)
-print(mensaje_clave)
-
-mensaje_resultado = 'El resultado de la validacion es : \t '
+mensaje_resultado = 'El resultado de la exponenciacion es : \t '
 
 print(mensaje_resultado)
 
-if      (usuario_validado == True and clave_validada==True):
-    print(mensaje_validado)
+mensaje_resultado_no_conocido = 'No se puede llegar a un resultado determinado'
+
+if      positivo == True:
+    potencia = pow(base, exponente)
+elif    negativo == True:
+    exponente = (-1)*exponente
+    potencia = pow( (1/base), exponente)
+elif    cero == True:
+    potencia = 1
 else:
-    print(mensaje_no_validado)
+    potencia = mensaje_resultado_no_conocido
+    
+print( "Potencia :  %06.10f "%(potencia))
 
 mensaje_fin()    
