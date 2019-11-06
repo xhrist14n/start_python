@@ -40,21 +40,21 @@ codigos_computadoras = []
 for item in range(1, numero_estudiantes_computadoras):
     codigo = generar_codigo()
     codigos_computadoras.append(codigo)
-    codigos.append(codigo)
 
 codigos_algoritmos = []
 for item in range(1, numero_estudiantes_algoritmos):
     codigo = generar_codigo()
     codigos_algoritmos.append(codigo)
-    codigos.append(codigo)
 
-print("Codigos Computadoras\n")
+codigos = codigos_computadoras + codigos_algoritmos
+
+print("\n\tCodigos Computadoras\n")
 print(codigos_computadoras)
 
-print("Codigos Algoritmos\n")
+print("\n\tCodigos Algoritmos\n")
 print(codigos_algoritmos)
 
-print("Codigos\n")
+print("\n\tCodigos\n")
 print(codigos)
     
 mensaje_fin()    
