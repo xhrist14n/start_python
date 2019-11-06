@@ -1,0 +1,2 @@
+Elaborar un algoritmo que forme dos arreglos. El primero contiene los M códigos de los estudiantes que perdieron COMPUTADORAS y el segundo los N códigos de los estudiantes que perdieron ALGORITMOS. 
+Partiendo de los dos arreglos formar uno nuevo con los códigos de los estudiantes que perdieron ambas materias.
