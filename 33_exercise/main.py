@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import random
 def mensaje_inicio():
     mensaje = '\nInicio de Programa\n'
     print(mensaje)
@@ -7,85 +8,53 @@ def mensaje_fin():
     mensaje = '\nFin de Programa\n'
     print(mensaje)
         
-def ingrese_texto(mensaje = None):
-    texto = ''
-    if(mensaje is None):
-        mensaje = "Ingrese un texto: "
-        
-    try:
-        texto = raw_input(mensaje + "\t")                    ## esto se usa para string
-    except: 
-        texto = ingrese_texto(mensaje)
-        
-    return texto
+def generar_codigo():
+    letras = 'abcdefghijklmnopqrstuvwxyz'
+    codigo = ''
+    for item in range(1,8):
+        posicion = random.randint(1,len(letras))
+        try:
+            letra = letras[posicion]
+        except:
+            posicion = posicion%(len(letras)-1)
+            letra = letras[posicion]
+            
+        codigo = '%s%s'%(codigo, letra)
+    return codigo
 
-def ingrese_numero(mensaje = None):
-    numero = 0
-    if(mensaje is None):
-        mensaje = "Ingrese un numero: "
-        
-    try:
-        numero = float(input(mensaje + "\t"))
-    except: 
-        numero = ingrese_numero(mensaje)
-        
-    return numero
 
-def es_nota_valida( nota ):
-    respuesta = False
-    if(nota >= 5):
-        respuesta = True
-    return respuesta
-
-def es_edad_valida( edad ):
-    respuesta = False
-    if(edad >= 18):
-        respuesta = True
-    return respuesta
-
-def es_femenino( sexo ):
-    respuesta = False
-    if(sexo == 'F'):
-        respuesta = True
-    return respuesta
-
-def es_masculino( sexo ):
-    respuesta = False
-    if(sexo == 'M'):
-        respuesta = True
-    return respuesta
 
 ## Inicia programa aca
 
 mensaje_inicio()
 
-nota     =   ingrese_numero("Ingrese la nota: ")
-edad       =   ingrese_numero("Ingrese la edad: ")
-sexo       =   ingrese_texto("Ingrese su sexo(M/F): ")
+cantidad = 200;
 
+numero_estudiantes_computadoras = random.randint(0, cantidad)
 
-nota_valida = es_nota_valida(nota)
-edad_valida = es_edad_valida(edad)
-femenino = es_femenino(sexo)
-masculino = es_masculino(sexo)
+numero_estudiantes_algoritmos = cantidad - numero_estudiantes_computadoras
 
-mensaje_validado                 = '\nACEPTADA\n'
-mensaje_no_validado              = '\nNO ACEPTADA\n'
-mensaje_posible                  = '\nPOSIBLE\n'
-mensaje_no_determinado           = '\nNo se puede determinar\n'
+codigos = []
 
-mensaje_resultado = '\nEl resultado es : \t '
+codigos_computadoras = []
+for item in range(1, numero_estudiantes_computadoras):
+    codigo = generar_codigo()
+    codigos_computadoras.append(codigo)
+    codigos.append(codigo)
 
-print(mensaje_resultado)
+codigos_algoritmos = []
+for item in range(1, numero_estudiantes_algoritmos):
+    codigo = generar_codigo()
+    codigos_algoritmos.append(codigo)
+    codigos.append(codigo)
 
-if      nota_valida == True and edad_valida==True:
-    if femenino == True:
-        print(mensaje_validado)
-    elif masculino == True:
-        print(mensaje_posible)
-    else:
-        print(mensaje_no_determinado)            
-else:
-    print(mensaje_no_validado)
+print("Codigos Computadoras\n")
+print(codigos_computadoras)
 
+print("Codigos Algoritmos\n")
+print(codigos_algoritmos)
+
+print("Codigos\n")
+print(codigos)
+    
 mensaje_fin()    
