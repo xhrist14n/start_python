@@ -45,7 +45,7 @@ mensaje_inicio()
 
 numero = ingrese_numero()
 
-cont = 1
+cont = 0
 
 suma = numero
 
