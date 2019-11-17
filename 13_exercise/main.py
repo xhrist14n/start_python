@@ -42,11 +42,12 @@ def es_vocal( letra ):
             respuesta = True
     return respuesta
 
-def es_clave( clave ):
-    clave_valida = 'asdasd'
-    respuesta = False
-    if(clave == clave_valida):
-        respuesta = True
+def es_no_vocal( clave ):
+    letras_vocales = 'asdasd'
+    respuesta = True
+    for letra_vocal in letras_vocales:
+        if(letra == letra_vocal):
+            respuesta = False
     return respuesta
 
 ## Inicia programa aca
