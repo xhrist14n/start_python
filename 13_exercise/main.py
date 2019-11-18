@@ -68,7 +68,7 @@ mensaje_inicio()
 
 letra = ingreso_letra()
 
-while letra == ' ':
+while letra != ' ' :
     letra = ingreso_letra()
 
 mensaje_fin()    
