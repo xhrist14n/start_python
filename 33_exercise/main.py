@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+## codigo creado por Christian Portilla Pauca
+## Website: https://www.christianportilla.com
+## Mail: khrist14n@gmail.com
+
 import random
 def mensaje_inicio():
     mensaje = '\nInicio de Programa\n'
