@@ -37,4 +37,4 @@ for item in range(1, multiplo):
     multiplicacion = numero * item
     print("\n\t%i * %i = %i"%(numero, item, multiplicacion))
 
-mensaje_fin()    
+mensaje_fin()
